@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pageTitle">Product — Toffico Philippines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav-row">
+    <a href="index.html" class="logo">TOFFI<span>CO</span></a>
+
+    <nav class="primary" id="primaryNav">
+      <a href="index.html">Home</a>
+      <a href="index.html#catalog">Our Products</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#locations">Contact</a>
+      <a href="index.html#about">About Us</a>
+    </nav>
+
+    <a href="#" class="nav-inquire js-messenger-link" data-prefill="Hi Toffico! I'd like to ask about your products.">Inquire Now</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="wrap breadcrumb" id="breadcrumb"></div>
+
+<main class="wrap">
+  <div id="productHero"></div>
+</main>
+
+<section class="wrap related" id="relatedSection" style="display:none;">
+  <h2>More in this category</h2>
+  <div class="product-grid" id="relatedGrid"></div>
+</section>
+
+<section class="wrap" id="notFound" style="display:none; padding:80px 0;">
+  <h1>Product not found</h1>
+  <p style="margin-top:12px;"><a href="index.html" style="color:var(--terracotta-dark); text-decoration:underline;">← Back to the full catalog</a></p>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-row">
+      <div class="foot-logo">TOFFI<span>CO</span> Philippines</div>
+      <ul class="social-list">
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">TikTok</a></li>
+        <li><a href="#">YouTube</a></li>
+      </ul>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Toffico Philippines — Product catalog only. Message us on Facebook to order.</span>
+      <span>Privacy Policy</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* =========================================================
+   TOFFICO — PRODUCT DATA
+   Edit everything here: products, prices, specs, images,
+   and your Messenger username. Nothing else in the site
+   needs to change when you update this file.
+   ========================================================= */
+
+// ---- Your Facebook Page username, for the Messenger button ----
+// Replace "yourpagename" with your real Page username, e.g. "TofficoPH"
+const MESSENGER_USERNAME = "yourpagename";
+
+// Builds a Messenger deep link that opens with a pre-filled message
+function buildMessengerLink(prefillText) {
+  const base = `https://m.me/${MESSENGER_USERNAME}`;
+  return prefillText ? `${base}?text=${encodeURIComponent(prefillText)}` : base;
+}
+
+// ---- Categories (used for filter tabs, breadcrumbs, quick-nav tiles) ----
+const CATEGORIES = [
+  { key: "machines",    label: "Espresso Machines", image: "images/cat-machines.jpg" },
+  { key: "grinders",    label: "Coffee Grinders",   image: "images/cat-grinders.jpg" },
+  { key: "blenders",    label: "Blenders",          image: "images/cat-blenders.jpg" },
+  { key: "accessories", label: "Accessories",       image: "images/cat-accessories.jpg" },
+  { key: "consumables", label: "Consumables",       image: "images/cat-consumables.jpg" },
+];
+
+// ---- Products ----
+// images: add as many filenames as you like, in the order you want them shown.
+// Put the actual files directly in: diagrams/<filename>
+const PRODUCTS = [
+  {
+    id: "esp-classic",
+    name: "Classic Single-Group Espresso Machine",
+    category: "machines",
+    price: 68000,
+    salePrice: 59900,
+    badge: "Best Seller",
+    images: ["c2.jpg", "esp-classic-2.jpg", "esp-classic-3.jpg"],
+    specs: {
+      "Type": "Semi-automatic",
+      "Boiler": "Single, 2.5L",
+      "Pressure": "9 Bar",
+      "Power": "1450W",
+      "Dimensions": "38 × 45 × 40 cm",
+    },
+    description: "A dependable single-group machine built for a small counter that still needs to move fast during the morning rush. Steady steam pressure and a quick-heating boiler make it a solid first machine for a new café."
+  },
+  {
+    id: "esp-duo",
+    name: "Twin-Group Commercial Espresso Machine",
+    category: "machines",
+    price: 145000,
+    salePrice: null,
+    badge: null,
+    images: ["esp-duo-1.jpg", "esp-duo-2.jpg", "esp-duo-3.jpg"],
+    specs: {
+      "Type": "Semi-automatic",
+      "Boiler": "Dual, 5L",
+      "Pressure": "9–10 Bar",
+      "Power": "3200W",
+      "Dimensions": "70 × 52 × 48 cm",
+    },
+    description: "Built for higher-volume shops running two orders side by side without losing pressure or temperature. The dual boiler keeps steam and brew independent, so milk texturing never slows down the next shot."
+  },
+  {
+    id: "grind-conical",
+    name: "Conical Burr Grinder",
+    category: "grinders",
+    price: 24500,
+    salePrice: 19900,
+    badge: "Sale",
+    images: ["grind-conical-1.jpg", "grind-conical-2.jpg", "grind-conical-3.jpg"],
+    specs: {
+      "Burr Type": "Conical, 64mm",
+      "Hopper Capacity": "500g",
+      "Grind Settings": "40 steps",
+      "Power": "250W",
+    },
+    description: "Even, consistent grounds from a coarse French press setting down to a fine espresso grind. The low-heat motor protects flavor during long grinding sessions."
+  },
+  {
+    id: "grind-flat",
+    name: "Flat Burr Espresso Grinder",
+    category: "grinders",
+    price: 32000,
+    salePrice: null,
+    badge: "New",
+    images: ["grind-flat-1.jpg", "grind-flat-2.jpg", "grind-flat-3.jpg"],
+    specs: {
+      "Burr Type": "Flat, 58mm",
+      "Hopper Capacity": "400g",
+      "Grind Settings": "Stepless",
+      "Power": "350W",
+    },
+    description: "Stepless dialing gives baristas fine control for dialing in a new bag of beans. A favorite among shops that rotate single-origin espresso often."
+  },
+  {
+    id: "blend-bar",
+    name: "Bar Blender Pro",
+    category: "blenders",
+    price: 18500,
+    salePrice: 15900,
+    badge: "Sale",
+    images: ["blend-bar-1.jpg", "blend-bar-2.jpg", "blend-bar-3.jpg"],
+    specs: {
+      "Motor": "2 HP",
+      "Jar Capacity": "1.5L",
+      "Speed Settings": "3 + pulse",
+      "Material": "BPA-free polycarbonate jar",
+    },
+    description: "Crushes ice cleanly for frappés and iced blended drinks without watering them down. Sized right for a busy bar station that needs quick turnaround between orders."
+  },
+  {
+    id: "blend-commercial",
+    name: "Commercial Blender XL",
+    category: "blenders",
+    price: 29900,
+    salePrice: null,
+    badge: null,
+    images: ["blend-commercial-1.jpg", "blend-commercial-2.jpg", "blend-commercial-3.jpg"],
+    specs: {
+      "Motor": "3.5 HP",
+      "Jar Capacity": "2L",
+      "Speed Settings": "Variable dial + pulse",
+      "Material": "Stainless steel blade, glass jar",
+    },
+    description: "Built for back-to-back blending during peak hours. The heavier motor handles frozen fruit and ice without stalling, even on the tenth order in a row."
+  },
+  {
+    id: "acc-tamper",
+    name: "Tamper & Tamping Mat Set",
+    category: "accessories",
+    price: 1800,
+    salePrice: null,
+    badge: null,
+    images: ["acc-tamper-1.jpg", "acc-tamper-2.jpg"],
+    specs: {
+      "Material": "Stainless steel, walnut handle",
+      "Base Size": "58mm",
+      "Set Includes": "Tamper, silicone mat",
+    },
+    description: "A comfortable, correctly weighted tamper paired with a mat that protects your counter and keeps the tamping station tidy."
+  },
+  {
+    id: "acc-pitcher",
+    name: "Milk Pitcher Set (3 Sizes)",
+    category: "accessories",
+    price: 2200,
+    salePrice: 1750,
+    badge: "Sale",
+    images: ["acc-pitcher-1.jpg", "acc-pitcher-2.jpg"],
+    specs: {
+      "Material": "Stainless steel",
+      "Sizes": "350ml, 600ml, 950ml",
+      "Spout": "Precision pour",
+    },
+    description: "Three sizes cover everything from a single flat white to a full round of lattes, with a spout shaped for clean latte art."
+  },
+  {
+    id: "cons-syrup",
+    name: "Flavor Syrup Bundle (Set of 4)",
+    category: "consumables",
+    price: 2400,
+    salePrice: null,
+    badge: "New",
+    images: ["cons-syrup-1.jpg", "cons-syrup-2.jpg"],
+    specs: {
+      "Flavors": "Vanilla, Caramel, Hazelnut, Salted Caramel",
+      "Net Weight": "750ml per bottle",
+      "Shelf Life": "18 months unopened",
+    },
+    description: "Four house-favorite flavors in one bundle, formulated to mix cleanly into both hot and iced drinks without clumping."
+  },
+  {
+    id: "cons-beans",
+    name: "House Blend Coffee Beans, 1kg",
+    category: "consumables",
+    price: 950,
+    salePrice: null,
+    badge: "Best Seller",
+    images: ["cons-beans-1.jpg", "cons-beans-2.jpg"],
+    specs: {
+      "Origin": "Batangas & Benguet blend",
+      "Roast": "Medium",
+      "Net Weight": "1kg whole bean",
+    },
+    description: "A balanced medium roast built as a reliable house blend — approachable on its own and versatile enough for milk-based drinks."
+  },
+];
+
+// Helper: format a peso amount as ₱12,345.00
+function formatPHP(amount) {
+  return "₱" + Number(amount).toLocaleString("en-PH", { minimumFractionDigits: 2 });
+}
+
+// Helper: look up category metadata by key
+function getCategory(key) {
+  return CATEGORIES.find(c => c.key === key);
+}
+</script>
+<script>
+  // ---- Mobile menu ----
+  const toggle = document.getElementById('menuToggle');
+  const nav = document.getElementById('primaryNav');
+  toggle.addEventListener('click', () => nav.classList.toggle('open'));
+
+  // ---- Wire the generic header Messenger button ----
+  document.querySelectorAll('.js-messenger-link').forEach(el => {
+    el.href = buildMessengerLink(el.dataset.prefill || '');
+    el.target = '_blank';
+    el.rel = 'noopener';
+  });
+
+  // ---- Look up the product from the URL, e.g. product.html?id=esp-classic ----
+  const params = new URLSearchParams(window.location.search);
+  const productId = params.get('id');
+  const product = PRODUCTS.find(p => p.id === productId);
+
+  if (!product){
+    document.getElementById('notFound').style.display = 'block';
+  } else {
+    const category = getCategory(product.category);
+    document.getElementById('pageTitle').textContent = `${product.name} — Toffico Philippines`;
+
+    // Breadcrumb
+    document.getElementById('breadcrumb').innerHTML =
+      `<a href="index.html">Home</a> / <a href="index.html#catalog">${category.label}</a> / ${product.name}`;
+
+    // Image list with full paths
+    const images = product.images.map(f => `diagrams/${f}`);
+    let activeIndex = 0;
+
+    function badgeMarkup(){
+      if (!product.badge) return '';
+      const tone = product.badge.toLowerCase() === 'sale' ? 'sale' : (product.badge.toLowerCase() === 'new' ? 'new' : 'best');
+      return `<span class="badge" data-tone="${tone}">${product.badge}</span>`;
+    }
+
+    function priceMarkup(){
+      if (product.salePrice){
+        return `<span class="price-strike">${formatPHP(product.price)}</span> <span class="price-now">${formatPHP(product.salePrice)}</span>`;
+      }
+      return `<span class="price-now">${formatPHP(product.price)}</span>`;
+    }
+
+    function specRows(){
+      return Object.entries(product.specs).map(([label, value]) =>
+        `<tr><td>${label}</td><td>${value}</td></tr>`
+      ).join('');
+    }
+
+    const prefill = `Hi Toffico! I'd like to ask about the ${product.name}.`;
+
+    document.getElementById('productHero').innerHTML = `
+      <div class="product-hero">
+        <div class="gallery">
+          <div class="gallery-main media" id="galleryMain" data-label="diagrams/${product.images[0]}">
+            ${images.length > 1 ? `
+              <button class="nav-arrow prev" id="galleryPrev" aria-label="Previous image">‹</button>
+              <button class="nav-arrow next" id="galleryNext" aria-label="Next image">›</button>
+            ` : ''}
+            <img id="galleryImg" src="${images[0]}" alt="${product.name}" onerror="this.classList.add('broken')">
+          </div>
+          ${images.length > 1 ? `
+            <div class="gallery-thumbs" id="galleryThumbs">
+              ${images.map((src, i) => `
+                <div class="thumb media${i === 0 ? ' active' : ''}" data-index="${i}" data-label="${i+1}">
+                  <img src="${src}" alt="${product.name} photo ${i+1}" onerror="this.classList.add('broken')">
+                </div>
+              `).join('')}
+            </div>
+          ` : ''}
+        </div>
+
+        <div class="product-info">
+          <span class="eyebrow"><a href="index.html#catalog">${category.label}</a></span>
+          ${badgeMarkup()}
+          <h1>${product.name}</h1>
+          <div class="price-row">${priceMarkup()}</div>
+          <p class="description">${product.description}</p>
+          <table class="spec-table"><tbody>${specRows()}</tbody></table>
+
+          <a href="${buildMessengerLink(prefill)}" target="_blank" rel="noopener" class="btn-inquire">Inquire on Messenger →</a>
+          <p class="inquire-note">This is a catalog page — orders are placed directly with us on Messenger, not through this site.</p>
+        </div>
+      </div>
+    `;
+
+    // Gallery interactions
+    if (images.length > 1){
+      const mainImg = document.getElementById('galleryImg');
+      const mainMedia = document.getElementById('galleryMain');
+      const thumbs = document.querySelectorAll('.thumb');
+
+      function showImage(i){
+        activeIndex = (i + images.length) % images.length;
+        mainImg.classList.remove('broken');
+        mainImg.src = images[activeIndex];
+        mainMedia.dataset.label = images[activeIndex];
+        thumbs.forEach(t => t.classList.toggle('active', Number(t.dataset.index) === activeIndex));
+      }
+
+      thumbs.forEach(t => t.addEventListener('click', () => showImage(Number(t.dataset.index))));
+      document.getElementById('galleryPrev').addEventListener('click', () => showImage(activeIndex - 1));
+      document.getElementById('galleryNext').addEventListener('click', () => showImage(activeIndex + 1));
+      document.addEventListener('keydown', e => {
+        if (e.key === 'ArrowLeft') showImage(activeIndex - 1);
+        if (e.key === 'ArrowRight') showImage(activeIndex + 1);
+      });
+    }
+
+    // Related products (same category, excluding this one)
+    const related = PRODUCTS.filter(p => p.category === product.category && p.id !== product.id).slice(0, 4);
+    if (related.length){
+      document.getElementById('relatedSection').style.display = 'block';
+      document.getElementById('relatedGrid').innerHTML = related.map(p => `
+        <a class="product-card" href="product.html?id=${p.id}">
+          <div class="media" data-label="diagrams/${p.images[0]}">
+            <img src="diagrams/${p.images[0]}" alt="${p.name}" onerror="this.classList.add('broken')">
+          </div>
+          <div class="product-card-body">
+            <span class="eyebrow">${getCategory(p.category).label}</span>
+            <h3>${p.name}</h3>
+            <div class="product-card-price">${p.salePrice
+              ? `<span class="price-strike">${formatPHP(p.price)}</span><span class="price-now">${formatPHP(p.salePrice)}</span>`
+              : `<span class="price-now">${formatPHP(p.price)}</span>`}</div>
+            <span class="product-card-arrow">View details →</span>
+          </div>
+        </a>
+      `).join('');
+    }
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toffico Philippines — Coffee Supplies &amp; Equipment</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav-row">
+    <a href="index.html" class="logo">TOFFI<span>CO</span></a>
+
+    <nav class="primary" id="primaryNav">
+      <a href="index.html">Home</a>
+      <a href="#catalog">Our Products</a>
+      <a href="#services">Services</a>
+      <a href="#locations">Contact</a>
+      <a href="#about">About Us</a>
+    </nav>
+
+    <a href="#" class="nav-inquire js-messenger-link" data-prefill="Hi Toffico! I'd like to ask about your products.">Inquire Now</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="media" data-label="Hero banner — add images/hero.jpg (recommended 1920×1080)">
+    <img src="diagrams/c1.jpg " alt="Toffico Philippines coffee equipment" onerror="this.classList.add('broken')">
+  </div>
+  <svg class="steam" viewBox="0 0 64 110" aria-hidden="true">
+    <path d="M20 100 C10 80, 30 70, 20 50 C10 30, 30 20, 22 5"/>
+    <path d="M34 100 C24 80, 44 70, 34 50 C24 30, 44 20, 36 5"/>
+    <path d="M48 100 C38 80, 58 70, 48 50 C38 30, 58 20, 50 5"/>
+  </svg>
+  <div class="wrap hero-content">
+    <span class="eyebrow">Toffico Philippines — Est. Cainta, Rizal</span>
+    <h1>From bean to cup, we equip every pour.</h1>
+    <p>Browse espresso machines, grinders, blenders and consumables for cafés and home baristas. This is a catalog — message us on Facebook whenever you're ready to order.</p>
+    <a href="#" class="btn-primary js-messenger-link" data-prefill="Hi Toffico! I'd like to ask about your products.">Message Us →</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Our Products</h2>
+      <p>Everything a working café needs, organized by what's behind the counter.</p>
+    </div>
+
+    <div class="quick-cat-grid" id="quickCatGrid"></div>
+  </div>
+</section>
+
+<section class="section" id="catalog" style="padding-top:0;">
+  <div class="wrap">
+    <div class="filter-tabs" id="filterTabs"></div>
+    <div class="product-grid" id="productGrid"></div>
+  </div>
+</section>
+
+<section class="section" id="services" style="background:var(--cream-2);">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Featured Services</h2>
+      <p>Training and menu development, priced like everything else we offer.</p>
+    </div>
+
+    <div class="ticket-grid">
+      <div class="ticket">
+        <span class="tag-sale">Sale</span>
+        <div class="media" data-label="Barista 101 Training — images/svc-barista.jpg">
+          <img src="images/svc-barista.jpg" alt="Barista 101 Training" onerror="this.classList.add('broken')">
+        </div>
+        <div class="ticket-body">
+          <h3>Barista 101 Training</h3>
+          <div class="price-row">
+            <span class="price-strike">₱3,500.00</span>
+            <span class="price-now">₱2,500.00</span>
+          </div>
+          <a href="#" class="btn-inquire-small js-messenger-link" data-prefill="Hi Toffico! I'd like to ask about Barista 101 Training.">Inquire Now →</a>
+        </div>
+        <div class="ticket-edge"></div>
+      </div>
+
+      <div class="ticket">
+        <span class="tag-sale">Sale</span>
+        <div class="media" data-label="Menu &amp; Product Development — images/svc-menu.jpg">
+          <img src="images/svc-menu.jpg" alt="Menu &amp; Product Development" onerror="this.classList.add('broken')">
+        </div>
+        <div class="ticket-body">
+          <h3>Menu &amp; Product Development</h3>
+          <div class="price-row">
+            <span class="price-strike">₱12,500.00</span>
+            <span class="price-now">₱8,500.00</span>
+          </div>
+          <a href="#" class="btn-inquire-small js-messenger-link" data-prefill="Hi Toffico! I'd like to ask about Menu & Product Development.">Inquire Now →</a>
+        </div>
+        <div class="ticket-edge"></div>
+      </div>
+
+      <div class="ticket">
+        <div class="media" data-label="Menu Development + Staff Training — images/svc-menu-staff.jpg">
+          <img src="images/svc-menu-staff.jpg" alt="Menu Development + Staff Training" onerror="this.classList.add('broken')">
+        </div>
+        <div class="ticket-body">
+          <h3>Menu Development + Staff Training</h3>
+          <div class="price-row">
+            <span class="price-now">₱17,500.00</span>
+          </div>
+          <a href="#" class="btn-inquire-small js-messenger-link" data-prefill="Hi Toffico! I'd like to ask about Menu Development + Staff Training.">Inquire Now →</a>
+        </div>
+        <div class="ticket-edge"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="loc-grid" id="locations">
+  <div class="loc-card">
+    <span class="eyebrow">Flagship</span>
+    <h3>Toffico — Cainta, Rizal</h3>
+    <dl>
+      <span class="line"><dt>Address</dt><dd>2011 Ortigas Ave Ext, Cainta, Rizal</dd></span>
+      <span class="line"><dt>Phone</dt><dd>+63 945 576 6442</dd></span>
+      <span class="line"><dt>Email</dt><dd>tofficopremiumblends@gmail.com</dd></span>
+    </dl>
+  </div>
+  <div class="loc-card">
+    <span class="eyebrow">Pick-up Hub</span>
+    <h3>Toffico — Quezon City</h3>
+    <dl>
+      <span class="line"><dt>Address</dt><dd>24 Philand Drive, Quezon City</dd></span>
+      <span class="line"><dt>Phone</dt><dd>+63 945 576 6442</dd></span>
+      <span class="line"><dt>Email</dt><dd>tofficophilippines@gmail.com</dd></span>
+    </dl>
+  </div>
+</section>
+
+<footer class="site" id="about">
+  <div class="wrap">
+    <div class="foot-row">
+      <div class="foot-logo">TOFFI<span>CO</span> Philippines</div>
+      <ul class="social-list">
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">TikTok</a></li>
+        <li><a href="#">YouTube</a></li>
+      </ul>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Toffico Philippines — Product catalog only. Message us on Facebook to order.</span>
+      <span>Privacy Policy</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* =========================================================
+   TOFFICO — PRODUCT DATA
+   Edit everything here: products, prices, specs, images,
+   and your Messenger username. Nothing else in the site
+   needs to change when you update this file.
+   ========================================================= */
+
+// ---- Your Facebook Page username, for the Messenger button ----
+// Replace "yourpagename" with your real Page username, e.g. "TofficoPH"
+const MESSENGER_USERNAME = "yourpagename";
+
+// Builds a Messenger deep link that opens with a pre-filled message
+function buildMessengerLink(prefillText) {
+  const base = `https://m.me/${MESSENGER_USERNAME}`;
+  return prefillText ? `${base}?text=${encodeURIComponent(prefillText)}` : base;
+}
+
+// ---- Categories (used for filter tabs, breadcrumbs, quick-nav tiles) ----
+const CATEGORIES = [
+  { key: "machines",    label: "Espresso Machines", image: "images/cat-machines.jpg" },
+  { key: "grinders",    label: "Coffee Grinders",   image: "images/cat-grinders.jpg" },
+  { key: "blenders",    label: "Blenders",          image: "images/cat-blenders.jpg" },
+  { key: "accessories", label: "Accessories",       image: "images/cat-accessories.jpg" },
+  { key: "consumables", label: "Consumables",       image: "images/cat-consumables.jpg" },
+];
+
+// ---- Products ----
+// images: add as many filenames as you like, in the order you want them shown.
+// Put the actual files directly in: diagrams/<filename>
+const PRODUCTS = [
+  {
+    id: "esp-classic",
+    name: "Classic Single-Group Espresso Machine",
+    category: "machines",
+    price: 68000,
+    salePrice: 59900,
+    badge: "Best Seller",
+    images: ["c2.jpg", "esp-classic-2.jpg", "esp-classic-3.jpg"],
+    specs: {
+      "Type": "Semi-automatic",
+      "Boiler": "Single, 2.5L",
+      "Pressure": "9 Bar",
+      "Power": "1450W",
+      "Dimensions": "38 × 45 × 40 cm",
+    },
+    description: "A dependable single-group machine built for a small counter that still needs to move fast during the morning rush. Steady steam pressure and a quick-heating boiler make it a solid first machine for a new café."
+  },
+  {
+    id: "esp-duo",
+    name: "Twin-Group Commercial Espresso Machine",
+    category: "machines",
+    price: 145000,
+    salePrice: null,
+    badge: null,
+    images: ["esp-duo-1.jpg", "esp-duo-2.jpg", "esp-duo-3.jpg"],
+    specs: {
+      "Type": "Semi-automatic",
+      "Boiler": "Dual, 5L",
+      "Pressure": "9–10 Bar",
+      "Power": "3200W",
+      "Dimensions": "70 × 52 × 48 cm",
+    },
+    description: "Built for higher-volume shops running two orders side by side without losing pressure or temperature. The dual boiler keeps steam and brew independent, so milk texturing never slows down the next shot."
+  },
+  {
+    id: "grind-conical",
+    name: "Conical Burr Grinder",
+    category: "grinders",
+    price: 24500,
+    salePrice: 19900,
+    badge: "Sale",
+    images: ["grind-conical-1.jpg", "grind-conical-2.jpg", "grind-conical-3.jpg"],
+    specs: {
+      "Burr Type": "Conical, 64mm",
+      "Hopper Capacity": "500g",
+      "Grind Settings": "40 steps",
+      "Power": "250W",
+    },
+    description: "Even, consistent grounds from a coarse French press setting down to a fine espresso grind. The low-heat motor protects flavor during long grinding sessions."
+  },
+  {
+    id: "grind-flat",
+    name: "Flat Burr Espresso Grinder",
+    category: "grinders",
+    price: 32000,
+    salePrice: null,
+    badge: "New",
+    images: ["grind-flat-1.jpg", "grind-flat-2.jpg", "grind-flat-3.jpg"],
+    specs: {
+      "Burr Type": "Flat, 58mm",
+      "Hopper Capacity": "400g",
+      "Grind Settings": "Stepless",
+      "Power": "350W",
+    },
+    description: "Stepless dialing gives baristas fine control for dialing in a new bag of beans. A favorite among shops that rotate single-origin espresso often."
+  },
+  {
+    id: "blend-bar",
+    name: "Bar Blender Pro",
+    category: "blenders",
+    price: 18500,
+    salePrice: 15900,
+    badge: "Sale",
+    images: ["blend-bar-1.jpg", "blend-bar-2.jpg", "blend-bar-3.jpg"],
+    specs: {
+      "Motor": "2 HP",
+      "Jar Capacity": "1.5L",
+      "Speed Settings": "3 + pulse",
+      "Material": "BPA-free polycarbonate jar",
+    },
+    description: "Crushes ice cleanly for frappés and iced blended drinks without watering them down. Sized right for a busy bar station that needs quick turnaround between orders."
+  },
+  {
+    id: "blend-commercial",
+    name: "Commercial Blender XL",
+    category: "blenders",
+    price: 29900,
+    salePrice: null,
+    badge: null,
+    images: ["blend-commercial-1.jpg", "blend-commercial-2.jpg", "blend-commercial-3.jpg"],
+    specs: {
+      "Motor": "3.5 HP",
+      "Jar Capacity": "2L",
+      "Speed Settings": "Variable dial + pulse",
+      "Material": "Stainless steel blade, glass jar",
+    },
+    description: "Built for back-to-back blending during peak hours. The heavier motor handles frozen fruit and ice without stalling, even on the tenth order in a row."
+  },
+  {
+    id: "acc-tamper",
+    name: "Tamper & Tamping Mat Set",
+    category: "accessories",
+    price: 1800,
+    salePrice: null,
+    badge: null,
+    images: ["acc-tamper-1.jpg", "acc-tamper-2.jpg"],
+    specs: {
+      "Material": "Stainless steel, walnut handle",
+      "Base Size": "58mm",
+      "Set Includes": "Tamper, silicone mat",
+    },
+    description: "A comfortable, correctly weighted tamper paired with a mat that protects your counter and keeps the tamping station tidy."
+  },
+  {
+    id: "acc-pitcher",
+    name: "Milk Pitcher Set (3 Sizes)",
+    category: "accessories",
+    price: 2200,
+    salePrice: 1750,
+    badge: "Sale",
+    images: ["acc-pitcher-1.jpg", "acc-pitcher-2.jpg"],
+    specs: {
+      "Material": "Stainless steel",
+      "Sizes": "350ml, 600ml, 950ml",
+      "Spout": "Precision pour",
+    },
+    description: "Three sizes cover everything from a single flat white to a full round of lattes, with a spout shaped for clean latte art."
+  },
+  {
+    id: "cons-syrup",
+    name: "Flavor Syrup Bundle (Set of 4)",
+    category: "consumables",
+    price: 2400,
+    salePrice: null,
+    badge: "New",
+    images: ["cons-syrup-1.jpg", "cons-syrup-2.jpg"],
+    specs: {
+      "Flavors": "Vanilla, Caramel, Hazelnut, Salted Caramel",
+      "Net Weight": "750ml per bottle",
+      "Shelf Life": "18 months unopened",
+    },
+    description: "Four house-favorite flavors in one bundle, formulated to mix cleanly into both hot and iced drinks without clumping."
+  },
+  {
+    id: "cons-beans",
+    name: "House Blend Coffee Beans, 1kg",
+    category: "consumables",
+    price: 950,
+    salePrice: null,
+    badge: "Best Seller",
+    images: ["cons-beans-1.jpg", "cons-beans-2.jpg"],
+    specs: {
+      "Origin": "Batangas & Benguet blend",
+      "Roast": "Medium",
+      "Net Weight": "1kg whole bean",
+    },
+    description: "A balanced medium roast built as a reliable house blend — approachable on its own and versatile enough for milk-based drinks."
+  },
+];
+
+// Helper: format a peso amount as ₱12,345.00
+function formatPHP(amount) {
+  return "₱" + Number(amount).toLocaleString("en-PH", { minimumFractionDigits: 2 });
+}
+
+// Helper: look up category metadata by key
+function getCategory(key) {
+  return CATEGORIES.find(c => c.key === key);
+}
+</script>
+<script>
+  // ---- Mobile menu ----
+  const toggle = document.getElementById('menuToggle');
+  const nav = document.getElementById('primaryNav');
+  toggle.addEventListener('click', () => nav.classList.toggle('open'));
+
+  // ---- Wire up every Messenger link/button on the page ----
+  document.querySelectorAll('.js-messenger-link').forEach(el => {
+    el.href = buildMessengerLink(el.dataset.prefill || '');
+    el.target = '_blank';
+    el.rel = 'noopener';
+  });
+
+  // ---- Quick category tiles ----
+  const quickCatGrid = document.getElementById('quickCatGrid');
+  quickCatGrid.innerHTML = CATEGORIES.map(cat => `
+    <a class="quick-cat-card" href="#catalog" data-filter="${cat.key}">
+      <div class="media" data-label="${cat.label} — ${cat.image}">
+        <img src="${cat.image}" alt="${cat.label}" onerror="this.classList.add('broken')">
+      </div>
+      <div class="cat-label">
+        <span class="eyebrow">Category</span>
+        <h3>${cat.label}</h3>
+        <span class="arrow">Shop ${cat.label.toLowerCase()} →</span>
+      </div>
+    </a>
+  `).join('');
+
+  quickCatGrid.querySelectorAll('.quick-cat-card').forEach(card => {
+    card.addEventListener('click', () => setFilter(card.dataset.filter));
+  });
+
+  // ---- Filter tabs ----
+  const filterTabs = document.getElementById('filterTabs');
+  const allTabs = [{ key: 'all', label: 'All Products' }, ...CATEGORIES.map(c => ({ key: c.key, label: c.label }))];
+  filterTabs.innerHTML = allTabs.map(t =>
+    `<button class="filter-tab${t.key === 'all' ? ' active' : ''}" data-key="${t.key}">${t.label}</button>`
+  ).join('');
+
+  let currentFilter = 'all';
+
+  function setFilter(key){
+    currentFilter = key;
+    filterTabs.querySelectorAll('.filter-tab').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.key === key);
+    });
+    renderProductGrid();
+  }
+
+  filterTabs.querySelectorAll('.filter-tab').forEach(btn => {
+    btn.addEventListener('click', () => setFilter(btn.dataset.key));
+  });
+
+  // ---- Product grid ----
+  const productGrid = document.getElementById('productGrid');
+
+  function priceMarkup(p){
+    if (p.salePrice){
+      return `<span class="price-strike">${formatPHP(p.price)}</span><span class="price-now">${formatPHP(p.salePrice)}</span>`;
+    }
+    return `<span class="price-now">${formatPHP(p.price)}</span>`;
+  }
+
+  function badgeMarkup(p){
+    if (!p.badge) return '';
+    const tone = p.badge.toLowerCase() === 'sale' ? 'sale' : (p.badge.toLowerCase() === 'new' ? 'new' : 'best');
+    return `<span class="badge" data-tone="${tone}">${p.badge}</span>`;
+  }
+
+  function renderProductGrid(){
+    const list = PRODUCTS.filter(p => currentFilter === 'all' || p.category === currentFilter);
+    if (!list.length){
+      productGrid.innerHTML = `<p class="empty-state">No products in this category yet.</p>`;
+      return;
+    }
+    productGrid.innerHTML = list.map(p => `
+      <a class="product-card" href="product.html?id=${p.id}">
+        <div class="media" data-label="${p.name} — diagrams/${p.images[0]}">
+          ${badgeMarkup(p)}
+          <img src="diagrams/${p.images[0]}" alt="${p.name}" onerror="this.classList.add('broken')">
+        </div>
+        <div class="product-card-body">
+          <span class="eyebrow">${getCategory(p.category).label}</span>
+          <h3>${p.name}</h3>
+          <div class="product-card-price">${priceMarkup(p)}</div>
+          <span class="product-card-arrow">View details →</span>
+        </div>
+      </a>
+    `).join('');
+  }
+
+  renderProductGrid();
+</script>
+
+</body>
+</html>
